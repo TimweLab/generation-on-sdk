@@ -1,0 +1,6 @@
+module Pods_generation_on_sdk {
+  umbrella header "Pods-generation-on-sdk-umbrella.h"
+
+  export *
+  module * { export * }
+}
