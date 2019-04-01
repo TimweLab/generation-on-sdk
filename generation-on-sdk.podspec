@@ -82,7 +82,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://gitlab.rcm.timwe.com/development/products/generationon/generationon-iOS.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/TimweLab/generation-on-sdk.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
