@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "generation-on-sdk"
-  spec.version      = "0.1.5"
+  spec.version      = "0.1.7"
   spec.summary      = "SDK available for generation on"
   spec.swift_version = "4.2"
 
