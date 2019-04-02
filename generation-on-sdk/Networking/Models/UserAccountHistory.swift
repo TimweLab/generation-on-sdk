@@ -12,7 +12,7 @@ public struct UserAccountHistory:Codable{
     var userPrizes:[String:[UserPrize]]?
     var userAttempts:[String:[UserAttempt]]?
     var userPoints:[String:[UserPoint]]?
-    var additionalParams:[String:[String]]?
+    var additionalParams:[String:String]?
     
     public init(){}
 }

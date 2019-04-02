@@ -15,5 +15,10 @@ public struct UserProgression:Codable{
     var progressionDescription:String?
     var progressionImageUrl:String?
     
+    var progressionCategory:String?
+    var prograssionColorCode:String?
+    
+    var additionalParams:[String:String]?
+    
     public init(){}
 }
