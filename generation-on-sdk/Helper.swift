@@ -19,4 +19,6 @@ internal class Helper{
         
         return false
     }
+    
+    internal static let TAG = "GenerationOnAPI"
 }

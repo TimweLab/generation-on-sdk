@@ -9,11 +9,11 @@
 import Foundation
 
 public struct UserMsisdn:Codable{
-    var msisdn:String?
-    var type:String?
-    var balance:Double?
-    var isPrimaryNumber:Bool?
-    var additionalParams:[String:String]?
+    public var msisdn:String?
+    public var type:String?
+    public var balance:Double?
+    public var isPrimaryNumber:Bool?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

@@ -9,11 +9,11 @@
 import Foundation
 
 public struct UserAccountHistoryRequest:Codable{
-    var sessionKey:String?
-    var userProfile:UserProfile?
-    var fromDate:Int64?
-    var toDate:Int64?
-    var additionalParams:[String:String]?
+    public var sessionKey:String?
+    public var userProfile:UserProfile?
+    public var fromDate:Int64?
+    public var toDate:Int64?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

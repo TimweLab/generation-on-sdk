@@ -9,17 +9,17 @@
 import Foundation
 
 public struct EventRequest:Codable{
-    var sessionKey:String?
-    var userProfile:UserProfile?
-    var eventType:String?
-    var eventValue:String?
-    var eventDate:String?
-    var eventChannel:String?
-    var transactionId:String?
-    var productId:String?
-    var productName:String?
-    var appSection:String?
-    var additionalParams:[String:String]?
+    public var sessionKey:String?
+    public var userProfile:UserProfile?
+    public var eventType:String?
+    public var eventValue:String?
+    public var eventDate:String?
+    public var eventChannel:String?
+    public var transactionId:String?
+    public var productId:String?
+    public var productName:String?
+    public var appSection:String?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

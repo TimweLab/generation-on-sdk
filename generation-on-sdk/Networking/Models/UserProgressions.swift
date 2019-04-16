@@ -9,7 +9,7 @@
 import Foundation
 
 public struct UserProgressions: Codable {
-    var progressions:[String:UserProgression]?
+    public var progressions:[String:UserProgression]?
     
     public init(){}
 }

@@ -9,10 +9,10 @@
 import Foundation
 
 public struct ExchangePointsToAttemptRequest:Codable{
-    var sessionKey:String?
-    var userProfile:UserProfile?
-    var attemptsWanted:Int64?
-    var additionalParams:[String:String]?
+    public var sessionKey:String?
+    public var userProfile:UserProfile?
+    public var attemptsWanted:Int64?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

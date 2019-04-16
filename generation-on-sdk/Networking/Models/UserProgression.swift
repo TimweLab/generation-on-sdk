@@ -9,16 +9,16 @@
 import Foundation
 
 public struct UserProgression:Codable{
-    var progression:Int64?
-    var progressionTotal:Int64?
-    var progressionName:String?
-    var progressionDescription:String?
-    var progressionImageUrl:String?
+    public var progression:Int64?
+    public var progressionTotal:Int64?
+    public var progressionName:String?
+    public var progressionDescription:String?
+    public var progressionImageUrl:String?
     
-    var progressionCategory:String?
-    var prograssionColorCode:String?
+    public var progressionCategory:String?
+    public var prograssionColorCode:String?
     
-    var additionalParams:[String:String]?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

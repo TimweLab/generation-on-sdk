@@ -9,11 +9,11 @@
 import UIKit
 
 public struct ConfigResponse: Codable {
-    var partnerId:Int64?
-    var baseUrl:String?
-    var version:Int?
-    var partnerProps:[String:String]?
-    var additionalParams:[String:String]?
+    public var partnerId:Int64?
+    public var baseUrl:String?
+    public var version:Int?
+    public var partnerProps:[String:String]?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

@@ -9,15 +9,15 @@
 import Foundation
 
 public struct Prize:Codable{
-    var prizeCode:String?
-    var prizeName:String?
-    var prizeCategory:String?
-    var prizeDescription:String?
-    var prizeImageUrl:String?
-    var prizeTier:Int64?
-    var prizeTierName:String?
-    var totalUserTicketsForPrize:Int64?
-    var additionalParams:[String:String]?
+    public var prizeCode:String?
+    public var prizeName:String?
+    public var prizeCategory:String?
+    public var prizeDescription:String?
+    public var prizeImageUrl:String?
+    public var prizeTier:Int64?
+    public var prizeTierName:String?
+    public var totalUserTicketsForPrize:Int64?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

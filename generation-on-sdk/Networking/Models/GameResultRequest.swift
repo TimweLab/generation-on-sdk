@@ -9,10 +9,10 @@
 import Foundation
 
 public struct GameResultRequest:Codable{
-    var sessionKey:String?
-    var userProfile:UserProfile?
-    var tierId:Int64?
-    var additionalParams:[String:String]?
+    public var sessionKey:String?
+    public var userProfile:UserProfile?
+    public var tierId:Int64?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

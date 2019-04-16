@@ -9,12 +9,12 @@
 import Foundation
 
 public struct TokenInfo:Codable{
-    var sessionKey:String?
-    var userProfile:UserProfile?
-    var token:String?
-    var deviceUUID:String?
-    var appUUID:String?
-    var additionalParams:[String:String]?
+    public var sessionKey:String?
+    public var userProfile:UserProfile?
+    public var token:String?
+    public var deviceUUID:String?
+    public var appUUID:String?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

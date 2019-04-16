@@ -9,14 +9,14 @@
 import Foundation
 
 public struct GameInfo:Codable{
-    var gameType:String?
-    var gameName:String?
-    var gameDescription:String?
-    var gameImageUrl:String?
-    var listOfPrizes:[Prize]?
-    var pointsForEachAttempt:Int64?
-    var loyaltyPointsForEachAttempt:Int64?
-    var additionalParams:[String:String]?
+    public var gameType:String?
+    public var gameName:String?
+    public var gameDescription:String?
+    public var gameImageUrl:String?
+    public var listOfPrizes:[Prize]?
+    public var pointsForEachAttempt:Int64?
+    public var loyaltyPointsForEachAttempt:Int64?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

@@ -9,13 +9,13 @@
 import Foundation
 
 public struct EventResponse:Codable{
-    var success:Bool?
-    var message:String?
-    var description:String?
-    var messageToUser:String?
-    var messageToUserImgUrl:String?
-    var actionToPerform:String?
-    var additionalParams:[String:String]?
+    public var success:Bool?
+    public var message:String?
+    public var description:String?
+    public var messageToUser:String?
+    public var messageToUserImgUrl:String?
+    public var actionToPerform:String?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

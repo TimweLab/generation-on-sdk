@@ -9,10 +9,10 @@
 import Foundation
 
 public struct UserAccountHistory:Codable{
-    var userPrizes:[String:[UserPrize]]?
-    var userAttempts:[String:[UserAttempt]]?
-    var userPoints:[String:[UserPoint]]?
-    var additionalParams:[String:String]?
+    public var userPrizes:[String:[UserPrize]]?
+    public var userAttempts:[String:[UserAttempt]]?
+    public var userPoints:[String:[UserPoint]]?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

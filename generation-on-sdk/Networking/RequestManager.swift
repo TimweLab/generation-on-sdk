@@ -56,9 +56,9 @@ internal class RequestManager{
     private func createRequest<T: Decodable>(as method:HTTPMethod, to url:String, body:[String:Any]?) -> T?{
         let api_url = (base_url ?? "") + url
         
-        if Helper.IsDebug(){
-            print("REQUEST: Sending request to \(api_url)")
-        }
+//        if Helper.IsDebug(){
+            print("\(Helper.TAG): Sending request to \(api_url)")
+//        }
         
         let response = Alamofire.request(api_url.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)!,
                                          method:method, parameters:body, encoding: JSONEncoding.default, headers:headers)
@@ -68,10 +68,10 @@ internal class RequestManager{
     }
     
     private func parseNetworkResponse<T: Decodable>(response:DataResponse<Any>) -> T?{
-        if Helper.IsDebug(){
-            print("REQUEST: Ended request \(String(describing: response.request?.url))")
-            print("REQUEST: response: \(String(describing: response.result.value))")
-        }
+//        if Helper.IsDebug(){
+            print("\(Helper.TAG): Ended request \(String(describing: response.request?.url))")
+            print("\(Helper.TAG): response: \(String(describing: response.result.value))")
+//        }
         
         switch response.result {
         case .success(_):

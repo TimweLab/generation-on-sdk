@@ -9,14 +9,14 @@
 import Foundation
 
 public struct UserAttempt:Codable{
-    var attempts:Int64?
-    var attemptsEarnedDate:Int64?
-    var attemptsStatus:String?
-    var attemptsStatusDate:Int64?
-    var attemptsSource:String?
-    var attemptsDescription:String?
-    var attemptsExpirationDate:Int64?
-    var additionalParams:[String:String]?
+    public var attempts:Int64?
+    public var attemptsEarnedDate:Int64?
+    public var attemptsStatus:String?
+    public var attemptsStatusDate:Int64?
+    public var attemptsSource:String?
+    public var attemptsDescription:String?
+    public var attemptsExpirationDate:Int64?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

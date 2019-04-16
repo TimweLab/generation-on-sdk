@@ -9,13 +9,13 @@
 import Foundation
 
 public struct UserPrize:Codable{
-    var prize:Prize?
-    var prizeEarnedDate:Int64?
-    var prizeStatus:String?
-    var prizeStatusDate:Int64?
-    var prizeSource:String?
-    var prizeExpirationDate:Int64?
-    var additionalParams:[String:String]?
+    public var prize:Prize?
+    public var prizeEarnedDate:Int64?
+    public var prizeStatus:String?
+    public var prizeStatusDate:Int64?
+    public var prizeSource:String?
+    public var prizeExpirationDate:Int64?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

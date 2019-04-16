@@ -9,9 +9,9 @@
 import Foundation
 
 public struct UserProgressionRequest:Codable {
-    var sessionKey:String?
-    var userProfile:UserProfile?
-    var additionalParams:[String:String]?
+    public var sessionKey:String?
+    public var userProfile:UserProfile?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }

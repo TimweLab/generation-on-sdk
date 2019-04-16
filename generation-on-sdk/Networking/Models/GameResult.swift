@@ -9,12 +9,12 @@
 import Foundation
 
 public struct GameResult:Codable{
-    var userPrize:UserPrize?
-    var gameResult:Int64?
-    var messageToUser:String?
-    var messageToUserImgUrl:String?
-    var actionToPerform:String?
-    var additionalParams:[String:String]?
+    public var userPrize:UserPrize?
+    public var gameResult:Int64?
+    public var messageToUser:String?
+    public var messageToUserImgUrl:String?
+    public var actionToPerform:String?
+    public var additionalParams:[String:String]?
     
     public init(){}
 }
