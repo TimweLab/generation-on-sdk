@@ -8,19 +8,19 @@
 
 import Foundation
 
-public struct EventRequest:Codable{
-    public var sessionKey:String?
-    public var userProfile:UserProfile?
-    public var eventType:String?
-    public var eventValue:String?
-    public var eventDate:String?
-    public var eventChannel:String?
-    public var transactionId:String?
-    public var productId:String?
-    public var productName:String?
-    public var appSection:String?
-    public var additionalParams:[String:String]?
+@objc public class EventRequest:NSObject, Codable{
+    @objc public var sessionKey:String?
+    @objc public var userProfile:UserProfile?
+    @objc public var eventType:String?
+    @objc public var eventValue:String?
+    @objc public var eventDate:String?
+    @objc public var eventChannel:String?
+    @objc public var transactionId:String?
+    @objc public var productId:String?
+    @objc public var productName:String?
+    @objc public var appSection:String?
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }
 

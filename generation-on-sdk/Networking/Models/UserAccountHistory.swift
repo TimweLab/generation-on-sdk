@@ -8,11 +8,11 @@
 
 import Foundation
 
-public struct UserAccountHistory:Codable{
-    public var userPrizes:[String:[UserPrize]]?
-    public var userAttempts:[String:[UserAttempt]]?
-    public var userPoints:[String:[UserPoint]]?
-    public var additionalParams:[String:String]?
+@objc public class UserAccountHistory:NSObject, Codable{
+    @objc public var userPrizes:[String:[UserPrize]]?
+    @objc public var userAttempts:[String:[UserAttempt]]?
+    @objc public var userPoints:[String:[UserPoint]]?
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

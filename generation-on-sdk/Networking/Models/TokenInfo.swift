@@ -8,13 +8,13 @@
 
 import Foundation
 
-public struct TokenInfo:Codable{
-    public var sessionKey:String?
-    public var userProfile:UserProfile?
-    public var token:String?
-    public var deviceUUID:String?
-    public var appUUID:String?
-    public var additionalParams:[String:String]?
+@objc public class TokenInfo:NSObject, Codable{
+    @objc public var sessionKey:String?
+    @objc public var userProfile:UserProfile?
+    @objc public var token:String?
+    @objc public var deviceUUID:String?
+    @objc public var appUUID:String?
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

@@ -8,17 +8,17 @@
 
 import Foundation
 
-public struct UserProgression:Codable{
-    public var progression:Int64?
-    public var progressionTotal:Int64?
-    public var progressionName:String?
-    public var progressionDescription:String?
-    public var progressionImageUrl:String?
+@objc public class UserProgression:NSObject, Codable{
+    @objc public var progression:Int64 = Int64.min
+    @objc public var progressionTotal:Int64 = Int64.min
+    @objc public var progressionName:String?
+    @objc public var progressionDescription:String?
+    @objc public var progressionImageUrl:String?
     
-    public var progressionCategory:String?
-    public var prograssionColorCode:String?
+    @objc public var progressionCategory:String?
+    @objc public var prograssionColorCode:String?
     
-    public var additionalParams:[String:String]?
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

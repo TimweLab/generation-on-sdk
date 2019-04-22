@@ -8,12 +8,12 @@
 
 import Foundation
 
-public struct UserAccountHistoryRequest:Codable{
-    public var sessionKey:String?
-    public var userProfile:UserProfile?
-    public var fromDate:Int64?
-    public var toDate:Int64?
-    public var additionalParams:[String:String]?
+@objc public class UserAccountHistoryRequest:NSObject, Codable{
+    @objc public var sessionKey:String?
+    @objc public var userProfile:UserProfile?
+    @objc public var fromDate:Int64 = Int64.min
+    @objc public var toDate:Int64 = Int64.min
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

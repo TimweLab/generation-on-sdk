@@ -8,12 +8,12 @@
 
 import Foundation
 
-public struct UserProfile:Codable{
-    public var profileId:Int64?
-    public var email:String?
-    public var userMsisdns:[UserMsisdn]?
-    public var lang:String?
-    public var additionalParams:[String:String]?
+@objc public class UserProfile:NSObject, Codable{
+    @objc public var profileId:Int64 = Int64.min
+    @objc public var email:String?
+    @objc public var userMsisdns:[UserMsisdn]?
+    @objc public var lang:String?
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

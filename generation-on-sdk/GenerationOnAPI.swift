@@ -8,9 +8,7 @@
 
 import Foundation
 
-public class GenerationOnAPI{
-    
-    private static let BASE_URL = "https://geon.timwe.com/"
+@objc public class GenerationOnAPI: NSObject{
     
     private static var instance:GenerationOnAPI?
     
@@ -19,36 +17,38 @@ public class GenerationOnAPI{
     private var configResponse:ConfigResponse?
     private var isServiceConfigurated = false
     
-    public init() {}
+    override public init() {}
     
-    private init(_ apiKey:String){
+    private init(_ apiKey:String) throws{
+        super.init()
+        
         isServiceConfigurated = false
         
         self.apiKey = apiKey
-        setup()
+        try setup()
     }
     
-    public static func getInstance(_ apiKey:String) -> GenerationOnAPI{
+    @objc public static func getInstance(_ apiKey:String) throws -> GenerationOnAPI{
         if instance == nil{
-            instance = GenerationOnAPI(apiKey)
+            instance = try GenerationOnAPI(apiKey)
         }
         
         return instance!
     }
     
-    public func isConfigurationAvaliable() -> Bool{
+    @objc public func isConfigurationAvaliable() -> Bool{
         return isServiceConfigurated
     }
     
-    private func setup() {
+    private func setup() throws {
         let locale = Locale.current.languageCode
 
         RequestManager.instance.buildConfigService(apiKey:apiKey, locale:locale ?? "")
         
-        let configCall = GenerationOnService.getConfigs()
+        let configCall = try GenerationOnService.getConfigs()
         
         configResponse = configCall
-        partnerKey = String(configCall?.partnerId ?? 0)
+        partnerKey = String(configCall.partnerId)
         
         let baseUrl = (configResponse == nil) ?  "https://" : (configResponse!.baseUrl ?? "")
         
@@ -61,31 +61,31 @@ public class GenerationOnAPI{
         }
     }
     
-    public func getGameInfo(_ request:GameInfoRequest) -> GameInfoResponse?{
-        return GenerationOnService.postGameInfo(partnerKey:partnerKey, request:request)
+    @objc public func getGameInfo(_ request:GameInfoRequest) throws -> GameInfoResponse{
+        return try GenerationOnService.postGameInfo(partnerKey:partnerKey, request:request)
     }
     
-    public func getUserAccountHistory(_ request:UserAccountHistoryRequest) -> UserAccountHistory?{
-        return GenerationOnService.postUserHistory(partnerKey:partnerKey, request:request)
+    @objc public func getUserAccountHistory(_ request:UserAccountHistoryRequest) throws -> UserAccountHistory{
+        return try GenerationOnService.postUserHistory(partnerKey:partnerKey, request:request)
     }
     
-    public func getUserProgression(_ request:UserProgressionRequest) -> UserProgressions?{
-        return GenerationOnService.postUserProgression(partnerKey:partnerKey, request:request)
+    @objc public func getUserProgression(_ request:UserProgressionRequest) throws -> UserProgressions{
+        return try GenerationOnService.postUserProgression(partnerKey:partnerKey, request:request)
     }
     
-    public func exchangePointsToAttempts(_ request:ExchangePointsToAttemptRequest) -> ExchangePointsToAttemptResponse?{
-        return GenerationOnService.postExchangePointsToAttempts(partnerKey:partnerKey, request:request)
+    @objc public func exchangePointsToAttempts(_ request:ExchangePointsToAttemptRequest) throws -> ExchangePointsToAttemptResponse{
+        return try GenerationOnService.postExchangePointsToAttempts(partnerKey:partnerKey, request:request)
     }
     
-    public func getGameResult(_ request:GameResultRequest) -> GameResult?{
-        return GenerationOnService.postGameResult(partnerKey:partnerKey, request:request)
+    @objc public func getGameResult(_ request:GameResultRequest) throws -> GameResult{
+        return try GenerationOnService.postGameResult(partnerKey:partnerKey, request:request)
     }
     
-    public func event(_ request:EventRequest) -> EventResponse?{
-        return GenerationOnService.postEvent(partnerKey:partnerKey, request:request)
+    @objc public func event(_ request:EventRequest) throws -> EventResponse{
+        return try GenerationOnService.postEvent(partnerKey:partnerKey, request:request)
     }
     
-    public func insertOrUpdatePushNotificationToken(_ request:TokenInfo){
-        GenerationOnService.postPushsNotifications(partnerKey:partnerKey, request:request)
+    @objc public func insertOrUpdatePushNotificationToken(_ request:TokenInfo) throws {
+        try GenerationOnService.postPushsNotifications(partnerKey:partnerKey, request:request)
     }
 }

@@ -8,16 +8,16 @@
 
 import Foundation
 
-public struct Prize:Codable{
-    public var prizeCode:String?
-    public var prizeName:String?
-    public var prizeCategory:String?
-    public var prizeDescription:String?
-    public var prizeImageUrl:String?
-    public var prizeTier:Int64?
-    public var prizeTierName:String?
-    public var totalUserTicketsForPrize:Int64?
-    public var additionalParams:[String:String]?
+@objc public class Prize:NSObject, Codable{
+    @objc public var prizeCode:String?
+    @objc public var prizeName:String?
+    @objc public var prizeCategory:String?
+    @objc public var prizeDescription:String?
+    @objc public var prizeImageUrl:String?
+    @objc public var prizeTier:Int64 = -1
+    @objc public var prizeTierName:String?
+    @objc public var totalUserTicketsForPrize:Int64 = -1
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

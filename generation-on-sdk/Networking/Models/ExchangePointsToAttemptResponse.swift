@@ -8,14 +8,14 @@
 
 import Foundation
 
-public struct ExchangePointsToAttemptResponse:Codable{
-    public var success:Bool?
-    public var message:String?
-    public var description:String?
-    public var messageToUser:String?
-    public var messageToUserImgUrl:String?
-    public var actionToPerform:String?
-    public var additionalParams:[String:String]?
+@objc public class ExchangePointsToAttemptResponse:NSObject, Codable{
+    @objc public var success:Bool = false
+    @objc public var message:String?
+    @objc public var responseDescription:String?//NSObject already has a description field
+    @objc public var messageToUser:String?
+    @objc public var messageToUserImgUrl:String?
+    @objc public var actionToPerform:String?
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

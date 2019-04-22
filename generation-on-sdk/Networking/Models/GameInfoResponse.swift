@@ -8,14 +8,14 @@
 
 import Foundation
 
-public struct GameInfoResponse:Codable{
-    public var userTier:Int64?
-    public var userTierName:String?
-    public var userAttempts:[String:Int64]?
-    public var userPoints:Int64?
-    public var userLoyaltyPoints:Int64?
-    public var gamesInfo:[GameInfo]?
-    public var additionalParams:[String:String]?
+@objc public class GameInfoResponse:NSObject, Codable{
+    @objc public var userTier:Int64 = Int64.min
+    @objc public var userTierName:String?
+    @objc public var userAttempts:[String:Int64]?
+    @objc public var userPoints:Int64 = Int64.min
+    @objc public var userLoyaltyPoints:Int64 = Int64.min
+    @objc public var gamesInfo:[GameInfo]?
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    public override init(){}
 }

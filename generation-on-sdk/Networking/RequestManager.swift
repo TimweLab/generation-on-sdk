@@ -41,19 +41,19 @@ internal class RequestManager{
         ] as HTTPHeaders
     }
     
-    func MakeRequest<T: Decodable>(as method:HTTPMethod, endpoint url:String) -> T?{
-        return self.createRequest(as: method, to: url, body: nil)
+    func MakeRequest<T: Decodable>(as method:HTTPMethod, endpoint url:String) throws -> T{
+        return try self.createRequest(as: method, to: url, body: nil)
     }
     
-    func MakeRequest<T: Decodable>(as method:HTTPMethod, endpoint url:String, with body:Codable?) -> T?{
-        return self.createRequest(as: method, to: url, body: body?.asDictionary)
+    func MakeRequest<T: Decodable>(as method:HTTPMethod, endpoint url:String, with body:Codable?) throws -> T{
+        return try self.createRequest(as: method, to: url, body: body?.asDictionary)
     }
     
-    func MakeRequest<T: Decodable>(as method:HTTPMethod, endpoint url:String, with body:[String:Any]?) -> T?{
-        return self.createRequest(as: method, to: url, body: body)
+    func MakeRequest<T: Decodable>(as method:HTTPMethod, endpoint url:String, with body:[String:Any]?) throws -> T{
+        return try self.createRequest(as: method, to: url, body: body)
     }
     
-    private func createRequest<T: Decodable>(as method:HTTPMethod, to url:String, body:[String:Any]?) -> T?{
+    private func createRequest<T: Decodable>(as method:HTTPMethod, to url:String, body:[String:Any]?) throws -> T{
         let api_url = (base_url ?? "") + url
         
 //        if Helper.IsDebug(){
@@ -64,10 +64,10 @@ internal class RequestManager{
                                          method:method, parameters:body, encoding: JSONEncoding.default, headers:headers)
             .responseJSON()
         
-        return self.parseNetworkResponse(response: response)
+        return try self.parseNetworkResponse(response: response)
     }
     
-    private func parseNetworkResponse<T: Decodable>(response:DataResponse<Any>) -> T?{
+    private func parseNetworkResponse<T: Decodable>(response:DataResponse<Any>) throws -> T{
 //        if Helper.IsDebug(){
             print("\(Helper.TAG): Ended request \(String(describing: response.request?.url))")
             print("\(Helper.TAG): response: \(String(describing: response.result.value))")
@@ -75,23 +75,51 @@ internal class RequestManager{
         
         switch response.result {
         case .success(_):
+            if (response.response?.statusCode != RequestManager.SuccessResponseCodes.SUCCESS_CODE.rawValue) && (response.response?.statusCode != RequestManager.SuccessResponseCodes.NO_RESPONSE.rawValue){
+                let errorToThrow = GenerationOnRuntimeException()
+                
+                do{
+                    let responseData = try JSONSerialization.data(withJSONObject: response.result.value!, options: [])
+                    
+                    let json = try JSONDecoder().decode(ErrorBody.self, from: responseData)
+                    
+                    errorToThrow.errorStatus = json.statusCode ?? -1
+                    errorToThrow.rootException = json.message
+                }catch{
+                    errorToThrow.errorStatus = -1
+                    errorToThrow.rootException = "Could not parse exception response"
+                }
+                
+                throw errorToThrow
+            }
+            
             if (response.response?.statusCode == RequestManager.SuccessResponseCodes.SUCCESS_CODE.rawValue && response.result.value == nil) ||
                 (response.response?.statusCode == RequestManager.SuccessResponseCodes.NO_RESPONSE.rawValue){
                 
-                return NoReply() as? T
+                return NoReply() as! T
             }else{
                 do{
                     let responseData = try JSONSerialization.data(withJSONObject: response.result.value!, options: [])
                     
-                    let json = try? JSONDecoder().decode(T.self, from: responseData)
+                    let json = try JSONDecoder().decode(T.self, from: responseData)
                     
-                    return json!
+                    return json
                 }catch{
-                    return nil
+                    let error = GenerationOnRuntimeException()
+                    
+                    error.errorStatus = response.response?.statusCode ?? 500
+                    error.rootException = "Could not parse the response"
+                    
+                    throw error
                 }
             }
-        case .failure(_):
-            return nil
+        case .failure(let e):
+            let error = GenerationOnRuntimeException()
+            
+            error.errorStatus = response.response?.statusCode ?? 500
+            error.rootException = e.localizedDescription
+        
+            throw error
         }
     }
 }

@@ -8,15 +8,15 @@
 
 import Foundation
 
-public struct UserAttempt:Codable{
-    public var attempts:Int64?
-    public var attemptsEarnedDate:Int64?
-    public var attemptsStatus:String?
-    public var attemptsStatusDate:Int64?
-    public var attemptsSource:String?
-    public var attemptsDescription:String?
-    public var attemptsExpirationDate:Int64?
-    public var additionalParams:[String:String]?
+@objc public class UserAttempt:NSObject, Codable{
+    @objc public var attempts:Int64 = Int64.min
+    @objc public var attemptsEarnedDate:Int64 = Int64.min
+    @objc public var attemptsStatus:String?
+    @objc public var attemptsStatusDate:Int64 = Int64.min
+    @objc public var attemptsSource:String?
+    @objc public var attemptsDescription:String?
+    @objc public var attemptsExpirationDate:Int64 = Int64.min
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

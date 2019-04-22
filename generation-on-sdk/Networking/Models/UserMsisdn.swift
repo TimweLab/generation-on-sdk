@@ -8,12 +8,12 @@
 
 import Foundation
 
-public struct UserMsisdn:Codable{
-    public var msisdn:String?
-    public var type:String?
-    public var balance:Double?
-    public var isPrimaryNumber:Bool?
-    public var additionalParams:[String:String]?
+@objc public class UserMsisdn:NSObject, Codable{
+    @objc public var msisdn:String?
+    @objc public var type:String?
+    @objc public var balance:Double = Double(Int.min)
+    @objc public var isPrimaryNumber:Bool = false
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

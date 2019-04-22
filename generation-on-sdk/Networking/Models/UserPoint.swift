@@ -8,15 +8,15 @@
 
 import Foundation
 
-public struct UserPoint:Codable{
-    public var points:Int64?
-    public var pointsEarnedDate:Int64?
-    public var pointsStatus:String?
-    public var pointsStatusDate:Int64?
-    public var pointsSource:String?
-    public var pointsDescription:String?
-    public var pointsExpirationDate:Int64?
-    public var additionalParams:[String:String]?
+@objc public class UserPoint:NSObject, Codable{
+    @objc public var points:Int64 = Int64.min
+    @objc public var pointsEarnedDate:Int64 = Int64.min
+    @objc public var pointsStatus:String?
+    @objc public var pointsStatusDate:Int64 = Int64.min
+    @objc public var pointsSource:String?
+    @objc public var pointsDescription:String?
+    @objc public var pointsExpirationDate:Int64 = Int64.min
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

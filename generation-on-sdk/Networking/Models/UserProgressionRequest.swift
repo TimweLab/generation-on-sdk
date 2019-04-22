@@ -8,10 +8,10 @@
 
 import Foundation
 
-public struct UserProgressionRequest:Codable {
-    public var sessionKey:String?
-    public var userProfile:UserProfile?
-    public var additionalParams:[String:String]?
+@objc public class UserProgressionRequest:NSObject, Codable {
+    @objc public var sessionKey:String?
+    @objc public var userProfile:UserProfile?
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

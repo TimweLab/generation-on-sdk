@@ -28,6 +28,7 @@
 		0119EEC32242AFA200452B76 /* ExchangePointsToAttemptRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119EEC22242AFA200452B76 /* ExchangePointsToAttemptRequest.swift */; };
 		0119EEC52242AFDB00452B76 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119EEC42242AFDB00452B76 /* EventResponse.swift */; };
 		0119EEC72242B01300452B76 /* EventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119EEC62242B01300452B76 /* EventRequest.swift */; };
+		016FBB32226DD6C700D2B1ED /* GenerationOnRuntimeException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016FBB31226DD6C700D2B1ED /* GenerationOnRuntimeException.swift */; };
 		0183EE64223AC8A800CB4C92 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183EE63223AC8A800CB4C92 /* RequestManager.swift */; };
 		0183EE6B223AC9C600CB4C92 /* NoReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183EE6A223AC9C600CB4C92 /* NoReply.swift */; };
 		0183EE6E223ACAA100CB4C92 /* GenerationOnService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183EE6D223ACAA100CB4C92 /* GenerationOnService.swift */; };
@@ -60,6 +61,7 @@
 		0119EEC22242AFA200452B76 /* ExchangePointsToAttemptRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangePointsToAttemptRequest.swift; sourceTree = "<group>"; };
 		0119EEC42242AFDB00452B76 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
 		0119EEC62242B01300452B76 /* EventRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRequest.swift; sourceTree = "<group>"; };
+		016FBB31226DD6C700D2B1ED /* GenerationOnRuntimeException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationOnRuntimeException.swift; sourceTree = "<group>"; };
 		0183EE63223AC8A800CB4C92 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		0183EE6A223AC9C600CB4C92 /* NoReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoReply.swift; sourceTree = "<group>"; };
 		0183EE6D223ACAA100CB4C92 /* GenerationOnService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationOnService.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				0183EE6A223AC9C600CB4C92 /* NoReply.swift */,
+				016FBB31226DD6C700D2B1ED /* GenerationOnRuntimeException.swift */,
 				0119EE9E2242935700452B76 /* UserProgressions.swift */,
 				0119EEA0224293BB00452B76 /* UserProgressionRequest.swift */,
 				0119EEA2224293F300452B76 /* UserProgression.swift */,
@@ -291,6 +294,7 @@
 				0119EE9F2242935700452B76 /* UserProgressions.swift in Sources */,
 				0119EEB12242966000452B76 /* UserAccountHistory.swift in Sources */,
 				0119EEC72242B01300452B76 /* EventRequest.swift in Sources */,
+				016FBB32226DD6C700D2B1ED /* GenerationOnRuntimeException.swift in Sources */,
 				0183EE6B223AC9C600CB4C92 /* NoReply.swift in Sources */,
 				0119EEBB2242ACBA00452B76 /* GameInfoResponse.swift in Sources */,
 				0119EEB92242AC7800452B76 /* GameResult.swift in Sources */,

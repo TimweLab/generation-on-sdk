@@ -8,12 +8,12 @@
 
 import UIKit
 
-public struct ConfigResponse: Codable {
-    public var partnerId:Int64?
-    public var baseUrl:String?
-    public var version:Int?
-    public var partnerProps:[String:String]?
-    public var additionalParams:[String:String]?
+@objc public class ConfigResponse: NSObject, Codable {
+    @objc public var partnerId:Int64 = Int64.min
+    @objc public var baseUrl:String?
+    @objc public var version:Int = Int.min
+    @objc public var partnerProps:[String:String]?
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

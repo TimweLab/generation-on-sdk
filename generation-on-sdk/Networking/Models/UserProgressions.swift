@@ -8,8 +8,8 @@
 
 import Foundation
 
-public struct UserProgressions: Codable {
-    public var progressions:[String:UserProgression]?
+@objc public class UserProgressions: NSObject, Codable {
+    @objc public var progressions:[String:UserProgression]?
     
-    public init(){}
+    override public init(){}
 }

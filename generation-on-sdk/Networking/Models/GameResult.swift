@@ -8,13 +8,13 @@
 
 import Foundation
 
-public struct GameResult:Codable{
-    public var userPrize:UserPrize?
-    public var gameResult:Int64?
-    public var messageToUser:String?
-    public var messageToUserImgUrl:String?
-    public var actionToPerform:String?
-    public var additionalParams:[String:String]?
+@objc public class GameResult:NSObject, Codable{
+    @objc public var userPrize:UserPrize?
+    @objc public var gameResult:Int64 = Int64.min
+    @objc public var messageToUser:String?
+    @objc public var messageToUserImgUrl:String?
+    @objc public var actionToPerform:String?
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

@@ -8,11 +8,11 @@
 
 import Foundation
 
-public struct GameResultRequest:Codable{
-    public var sessionKey:String?
-    public var userProfile:UserProfile?
-    public var tierId:Int64?
-    public var additionalParams:[String:String]?
+@objc public class GameResultRequest:NSObject, Codable{
+    @objc public var sessionKey:String?
+    @objc public var userProfile:UserProfile?
+    @objc public var tierId:Int64 = Int64.min
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

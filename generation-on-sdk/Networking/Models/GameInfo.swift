@@ -8,15 +8,15 @@
 
 import Foundation
 
-public struct GameInfo:Codable{
-    public var gameType:String?
-    public var gameName:String?
-    public var gameDescription:String?
-    public var gameImageUrl:String?
-    public var listOfPrizes:[Prize]?
-    public var pointsForEachAttempt:Int64?
-    public var loyaltyPointsForEachAttempt:Int64?
-    public var additionalParams:[String:String]?
+@objc public class GameInfo:NSObject, Codable{
+    @objc public var gameType:String?
+    @objc public var gameName:String?
+    @objc public var gameDescription:String?
+    @objc public var gameImageUrl:String?
+    @objc public var listOfPrizes:[Prize]?
+    @objc public var pointsForEachAttempt:Int64 = Int64.min
+    @objc public var loyaltyPointsForEachAttempt:Int64 = Int64.min
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }

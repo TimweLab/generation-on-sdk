@@ -8,14 +8,14 @@
 
 import Foundation
 
-public struct UserPrize:Codable{
-    public var prize:Prize?
-    public var prizeEarnedDate:Int64?
-    public var prizeStatus:String?
-    public var prizeStatusDate:Int64?
-    public var prizeSource:String?
-    public var prizeExpirationDate:Int64?
-    public var additionalParams:[String:String]?
+@objc public class UserPrize:NSObject, Codable{
+    @objc public var prize:Prize?
+    @objc public var prizeEarnedDate:Int64 = Int64.min
+    @objc public var prizeStatus:String?
+    @objc public var prizeStatusDate:Int64 = Int64.min
+    @objc public var prizeSource:String?
+    @objc public var prizeExpirationDate:Int64 = Int64.min
+    @objc public var additionalParams:[String:String]?
     
-    public init(){}
+    override public init(){}
 }
