@@ -2,7 +2,7 @@
 //  GenerationOnAPI.swift
 //  generation-on-sdk
 //
-//  Created by Neo Potter on 14/03/2019.
+//  Created by Ricardo Ponciano on 14/03/2019.
 //  Copyright © 2019 Timwe. All rights reserved.
 //
 
@@ -48,7 +48,7 @@ import Foundation
         let configCall = try GenerationOnService.getConfigs()
         
         configResponse = configCall
-        partnerKey = String(configCall.partnerId)
+        partnerKey = String(configCall.partnerId ?? 0)
         
         let baseUrl = (configResponse == nil) ?  "https://" : (configResponse!.baseUrl ?? "")
         

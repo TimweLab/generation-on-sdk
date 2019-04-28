@@ -2,7 +2,7 @@
 //  RequestManager.swift
 //  generation-on-sdk
 //
-//  Created by Neo Potter on 14/03/2019.
+//  Created by Ricardo Ponciano on 14/03/2019.
 //  Copyright © 2019 Timwe. All rights reserved.
 //
 
@@ -85,9 +85,9 @@ internal class RequestManager{
                     
                     errorToThrow.errorStatus = json.statusCode ?? -1
                     errorToThrow.rootException = json.message
-                }catch{
+                }catch let e{
                     errorToThrow.errorStatus = -1
-                    errorToThrow.rootException = "Could not parse exception response"
+                    errorToThrow.rootException = "\(Helper.TAG): Could not parse exception response"
                 }
                 
                 throw errorToThrow
@@ -104,11 +104,11 @@ internal class RequestManager{
                     let json = try JSONDecoder().decode(T.self, from: responseData)
                     
                     return json
-                }catch{
+                }catch let e{
                     let error = GenerationOnRuntimeException()
                     
                     error.errorStatus = response.response?.statusCode ?? 500
-                    error.rootException = "Could not parse the response"
+                    error.rootException = "\(Helper.TAG): Could not parse the response"
                     
                     throw error
                 }

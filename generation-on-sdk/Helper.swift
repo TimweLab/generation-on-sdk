@@ -2,7 +2,7 @@
 //  Helper.swift
 //  generation-on-sdk
 //
-//  Created by Neo Potter on 19/03/2019.
+//  Created by Ricardo Ponciano on 19/03/2019.
 //  Copyright © 2019 Timwe. All rights reserved.
 //
 
