@@ -84,10 +84,12 @@ internal class RequestManager{
                     let json = try JSONDecoder().decode(ErrorBody.self, from: responseData)
                     
                     errorToThrow.errorStatus = json.statusCode ?? -1
-                    errorToThrow.rootException = json.message
+                    errorToThrow.rootException = "\(Helper.TAG): \(String(describing: json.message)) (Error from server)"
                 }catch let e{
+                    print(e.localizedDescription)
+                    
                     errorToThrow.errorStatus = -1
-                    errorToThrow.rootException = "\(Helper.TAG): Could not parse exception response"
+                    errorToThrow.rootException = "\(Helper.TAG): Could not parse exception response (Exception parsing error from server)"
                 }
                 
                 throw errorToThrow
@@ -105,10 +107,12 @@ internal class RequestManager{
                     
                     return json
                 }catch let e{
+                    print(e.localizedDescription)
+                    
                     let error = GenerationOnRuntimeException()
                     
                     error.errorStatus = response.response?.statusCode ?? 500
-                    error.rootException = "\(Helper.TAG): Could not parse the response"
+                    error.rootException = "\(Helper.TAG): Could not parse the response (Error parsing response from server)"
                     
                     throw error
                 }
@@ -117,8 +121,8 @@ internal class RequestManager{
             let error = GenerationOnRuntimeException()
             
             error.errorStatus = response.response?.statusCode ?? 500
-            error.rootException = e.localizedDescription
-        
+            error.rootException = "\(Helper.TAG): \(e.localizedDescription) (Request failure)"
+            
             throw error
         }
     }
